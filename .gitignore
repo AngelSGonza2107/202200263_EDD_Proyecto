@@ -1,0 +1,8 @@
+*.exe
+*.dot
+*.png
+**.vscode/
+**obj/
+Proyecto.cbp
+Proyecto.depend
+Proyecto.layout
