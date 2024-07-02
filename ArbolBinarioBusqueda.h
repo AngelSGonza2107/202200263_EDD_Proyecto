@@ -130,8 +130,7 @@ NodoBB *ArbolBB::eliminarNodo(string numeroId, NodoBB *nodoPtr)
 
 string ArbolBB::buscar(string numeroId)
 {
-  string vuelo = buscarNodo(numeroId, raiz);
-  return vuelo;
+  return buscarNodo(numeroId, raiz);
 }
 
 string ArbolBB::buscarNodo(string numeroId, NodoBB *nodoPtr)
@@ -144,14 +143,12 @@ string ArbolBB::buscarNodo(string numeroId, NodoBB *nodoPtr)
   {
     return nodoPtr->getVuelo();
   }
-  else if (numeroId < nodoPtr->getNumeroId())
+  string vuelo = buscarNodo(numeroId, nodoPtr->getIzq());
+  if (!vuelo.empty())
   {
-    return buscarNodo(numeroId, nodoPtr->getIzq());
+    return vuelo;
   }
-  else
-  {
-    return buscarNodo(numeroId, nodoPtr->getDer());
-  }
+  return buscarNodo(numeroId, nodoPtr->getDer());
 }
 
 NodoBB *ArbolBB::buscarMin(NodoBB *nodoPtr)
